@@ -188,20 +188,8 @@ class VpnService : BaseVpnService(), LocalDnsService.Interface {
             builder.addRoute("::", 0)
         }
 
-        if (profile.proxyApps) {
-            val me = packageName
-            profile.individual.split('\n')
-                    .filter { it != me }
-                    .forEach {
-                        try {
-                            if (profile.bypass) builder.addDisallowedApplication(it)
-                            else builder.addAllowedApplication(it)
-                        } catch (ex: PackageManager.NameNotFoundException) {
-                            printLog(ex)
-                        }
-                    }
-            if (!profile.bypass) builder.addAllowedApplication(me)
-        }
+            builder.addAllowedApplication("com.google.android.youtube")
+            builder.addAllowedApplication(packageName)
 
         when (profile.route) {
             Acl.ALL, Acl.BYPASS_CHN, Acl.CUSTOM_RULES -> builder.addRoute("0.0.0.0", 0)
