@@ -19,7 +19,7 @@ android {
     buildToolsVersion rootProject.buildToolsVersion
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        applicationId "com.github.shadowsocks"
+        applicationId "com.behdad.shadowsocks"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.sdkVersion
         versionCode 4060100
